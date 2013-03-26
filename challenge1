@@ -1,0 +1,27 @@
+import pyrax
+
+pyrax.set_credential_file("/Users/drizzle/Desktop/corpcreds")
+
+cs = pyrax.cloudservers
+
+# Function that invokes another function (cs.servers.create), after taking user generated input
+def serverCreator(s_prefix, s_image, s_flavor, s_quantity):
+  print s_prefix
+	print s_image
+	print s_flavor
+	print s_quantity
+	num = int(s_quantity)
+	while True:
+		s_name = str(s_prefix) + str(num)
+		server = cs.servers.create(s_name, s_image, s_flavor)
+		print server
+		print "Name:", server.name
+		print "ID:", server.id
+		print "Status:", server.status
+		print "Admin Password:", server.adminPass
+		print "Networks:", server.networks
+		num -= 1
+		if num == 0:
+			break
+			
+serverCreator("web", "5cebb13a-f783-4f8c-8058-c4182c724ccd", 2, 3)
