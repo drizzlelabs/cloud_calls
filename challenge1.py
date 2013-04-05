@@ -26,7 +26,7 @@ def main():
             }
         }
         servers[name] = cs.servers.create(name, args.image, args.flavor)
-        print "Building server: %s" % servers[name] 
+        print "Building server: %s" % name
     
     print 
     
