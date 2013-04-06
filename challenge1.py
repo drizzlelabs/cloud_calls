@@ -10,7 +10,7 @@ def main():
     parser.add_argument ('-f', '--flavor', type=int, default=2, help='Flavor ID to build server with' )
     parser.add_argument ('-r', '--region', default='DFW', help='Datacenter/Region to build servers in', choices=['DFW', 'ORD', 'LON'])
     
-    pyrax.set_credential_file("/Users/drizzle/Desktop/corpcreds")
+    pyrax.set_credential_file("./CredsFile")
     cs = pyrax.cloudservers
     
     args = parser.parse_args()
